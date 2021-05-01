@@ -13,4 +13,6 @@
 <link href="{__ASSET__5}" imagesrcset="{__ASSET__5} 100v, {__ASSET__6} 200v" />
 <!-- svelte-preprocess-import-assets-ignore -->
 <use href="./foo.mp4" xlink:href="./foo.mp4" />
+<use href="{__ASSET__4}" xlink:href="{__ASSET__4}" />
+<img src="./foo.exe" />
 <script>import __ASSET__0 from "./foo.mp3";import __ASSET__1 from "./foo.pdf";import __ASSET__2 from "./foo.png";import __ASSET__3 from "./foo.jpg";import __ASSET__4 from "./foo.mp4";import __ASSET__5 from "./foo.css";import __ASSET__6 from "./bar.css";</script>

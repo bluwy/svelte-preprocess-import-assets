@@ -1,15 +1,15 @@
 # svelte-preprocess-import-assets
 
-Import assets directly in your templates.
+Import assets directly in your markup.
 
-Convert this:
+**Convert this:**
 
 ```svelte
 <h1>Look at this image</h1>
 <img src="./assets/cool-image.png" alt="cool image" />
 ```
 
-Into this:
+**Into this:**
 
 ```svelte
 <script>
@@ -40,29 +40,54 @@ svelte({ preprocess: [importAssets()] })
 
 ## API
 
-The `importAssets()` function has an optional parameter that receives an option object:
+The `importAssets()` function receives an optional options object for its first parameter. The object may contain these properties:
 
-```js
-importAssets({
-  // The sources to look for when scanning for imports
-  sources: (defaultSources) => {
-    return [
-      ...defaultSources,
-      {
-        tag: 'img',
-        srcAttrs: ['data-src'],
-        srcsetAttrs: ['data-srcset'],
-      },
-    ]
-  },
-  // Change the import name, e.g. `import __CUSTOM_IMPORT_PREFIX__0 from './assets/cool-image.png'`
-  importPrefix: '__CUSTOM_IMPORT_PREFIX__',
-  // Whether should convert to import
-  urlFilter: (url) => !url.endsWith('pdf'),
-})
-```
+### sources
 
-Ignore importing asset for an element:
+- **Type:** `AssetSource[] | ((defaultSources: AssetSource[]) => AssetSource[])`
+- **Default:** See `DEFAULT_SOURCES` in [src/index.ts](./src/index.ts)
+
+  These are the sources to look for when scanning for imports. You can provide an entire different list of sources, or declare a function to access the default sources and augment it.
+
+  ```js
+  {
+    sources: (defaultSources) => {
+      return [
+        ...defaultSources,
+        // Also scan `data-src` and `data-srcset` of an img tag
+        {
+          tag: 'img',
+          srcAttrs: ['data-src'],
+          srcsetAttrs: ['data-srcset'],
+        },
+      ]
+    },
+  }
+  ```
+
+### importPrefix
+
+- **Type:** `string`
+- **Default:** `__ASSET__`
+
+  The string to be prefixed for asset import names, e.g. `__ASSET__0` and `__ASSET__1`.
+
+### urlFilter
+
+- **Type:** `() => boolean`
+
+  Whether a URL should be converted into an import.
+
+  ```js
+  {
+    // Include URLs with specific extensions only
+    urlFilter: (url) => /\.(png|jpg|gif|webp)$/.test(url),
+  }
+  ```
+
+## Recipes
+
+### Ignore an element
 
 ```svelte
 <!-- svelte-preprocess-import-assets-ignore -->

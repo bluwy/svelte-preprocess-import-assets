@@ -10,7 +10,11 @@ test()
 
 async function test() {
   const input = await fs.readFile(p('./Input.svelte'), { encoding: 'utf-8' })
-  const processed = await preprocess(input, [importAssets()])
+  const processed = await preprocess(input, [
+    importAssets({
+      urlFilter: (v) => !/\.(abc|exe)$/.test(v),
+    }),
+  ])
 
   if (process.argv.slice(2).includes('-u')) {
     await fs.writeFile(p('./Output.svelte'), processed.code)
