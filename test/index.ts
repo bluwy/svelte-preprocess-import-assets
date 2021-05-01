@@ -7,6 +7,7 @@ import importAssets from '../src'
 
 const p = (...rest: string[]) => path.resolve(__dirname, ...rest)
 
+// TODO: More test
 test('Snapshot test', async () => {
   const input = await fs.readFile(p('./Input.svelte'), { encoding: 'utf-8' })
   const processed = await preprocess(input, [

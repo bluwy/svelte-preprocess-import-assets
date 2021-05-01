@@ -5,6 +5,7 @@ import MagicString from 'magic-string'
 export interface ImportAssetsOptions {
   sources?: AssetSource[] | ((defaultSources: AssetSource[]) => AssetSource[])
   importPrefix?: string
+  http?: boolean
   urlFilter?: (url: string) => boolean
 }
 
@@ -28,6 +29,7 @@ export default function importAssets(
   let {
     sources = DEFAULT_SOURCES,
     importPrefix = DEFAULT_ASSET_PREFIX,
+    http = false,
     urlFilter,
   } = options
 
@@ -50,6 +52,8 @@ export default function importAssets(
         end: number
       }) {
         const url = attributeValue.raw.trim()
+
+        if (!http && /^https?:\/\//.test(url)) return
 
         if (urlFilter && !urlFilter(url)) return
 

@@ -89,6 +89,13 @@ The `importAssets()` function receives an optional options object for its first 
 
   The string to be prefixed for asset import names, e.g. `___ASSET___0` and `___ASSET___1`.
 
+### http
+
+- **Type:** `boolean`
+- **Default:** `false`
+
+  Whether a URL with http/https protocol should be converted to an import.
+
 ### urlFilter
 
 - **Type:** `() => boolean`

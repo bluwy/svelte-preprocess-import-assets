@@ -25,3 +25,4 @@
 <meta name="twitter:image" content="./foo.pdf" />
 <meta property="og:image" content="./foo.png" />
 <meta itemprop="embedurl" content="./foo.mp3" />
+<img src="https://example.com/foo.png" />
