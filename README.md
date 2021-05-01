@@ -13,11 +13,11 @@ Import assets directly in your markup.
 
 ```svelte
 <script>
-  import __ASSET__0 from './assets/cool-image.png'
+  import ___ASSET___0 from './assets/cool-image.png'
 </script>
 
 <h1>Look at this image</h1>
-<img src={__ASSET__0} alt="cool image" />
+<img src={___ASSET___0} alt="cool image" />
 ```
 
 ## Usage
@@ -85,9 +85,9 @@ The `importAssets()` function receives an optional options object for its first 
 ### importPrefix
 
 - **Type:** `string`
-- **Default:** `__ASSET__`
+- **Default:** `___ASSET___`
 
-  The string to be prefixed for asset import names, e.g. `__ASSET__0` and `__ASSET__1`.
+  The string to be prefixed for asset import names, e.g. `___ASSET___0` and `___ASSET___1`.
 
 ### urlFilter
 

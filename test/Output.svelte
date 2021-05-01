@@ -1,28 +1,28 @@
-<audio src="{__ASSET__0}" />
-<embed src="{__ASSET__1}" />
-<img src="{__ASSET__2}" />
-<img srcset="{__ASSET__2}" />
-<input src="{__ASSET__3}" />
-<object src="{__ASSET__1}" />
-<source src="{__ASSET__4}" />
-<source srcset="{__ASSET__4} 500v ./bar.mp4 100v" />
-<track src="{__ASSET__0}" />
-<video poster="{__ASSET__4}" />
-<image href="{__ASSET__4}" xlink:href="{__ASSET__4}" />
-<use href="{__ASSET__4}" xlink:href="{__ASSET__4}" />
+<audio src="{___ASSET___0}" />
+<embed src="{___ASSET___1}" />
+<img src="{___ASSET___2}" />
+<img srcset="{___ASSET___2}" />
+<input src="{___ASSET___3}" />
+<object src="{___ASSET___1}" />
+<source src="{___ASSET___4}" />
+<source srcset="{___ASSET___4} 500v ./bar.mp4 100v" />
+<track src="{___ASSET___0}" />
+<video poster="{___ASSET___4}" />
+<image href="{___ASSET___4}" xlink:href="{___ASSET___4}" />
+<use href="{___ASSET___4}" xlink:href="{___ASSET___4}" />
 <!-- svelte-preprocess-import-assets-ignore -->
 <use href="./foo.mp4" xlink:href="./foo.mp4" />
-<use href="{__ASSET__4}" xlink:href="{__ASSET__4}" />
+<use href="{___ASSET___4}" xlink:href="{___ASSET___4}" />
 <img src="./foo.exe" />
 <link
   rel="stylesheet"
-  href="{__ASSET__5}"
-  imagesrcset="{__ASSET__5} 100v, {__ASSET__6} 200v"
+  href="{___ASSET___5}"
+  imagesrcset="{___ASSET___5} 100v, {___ASSET___6} 200v"
 />
 <link href="./foo.css" />
-<link itemprop="logo" href="{__ASSET__3}" />
+<link itemprop="logo" href="{___ASSET___3}" />
 <meta name="author" content="Bjorn Lu" />
-<meta name="twitter:image" content="{__ASSET__1}" />
-<meta property="og:image" content="{__ASSET__2}" />
-<meta itemprop="embedurl" content="{__ASSET__0}" />
-<script>import __ASSET__0 from "./foo.mp3";import __ASSET__1 from "./foo.pdf";import __ASSET__2 from "./foo.png";import __ASSET__3 from "./foo.jpg";import __ASSET__4 from "./foo.mp4";import __ASSET__5 from "./foo.css";import __ASSET__6 from "./bar.css";</script>
+<meta name="twitter:image" content="{___ASSET___1}" />
+<meta property="og:image" content="{___ASSET___2}" />
+<meta itemprop="embedurl" content="{___ASSET___0}" />
+<script>import ___ASSET___0 from "./foo.mp3";import ___ASSET___1 from "./foo.pdf";import ___ASSET___2 from "./foo.png";import ___ASSET___3 from "./foo.jpg";import ___ASSET___4 from "./foo.mp4";import ___ASSET___5 from "./foo.css";import ___ASSET___6 from "./bar.css";</script>

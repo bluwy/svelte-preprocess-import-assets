@@ -41,7 +41,7 @@ export default function importAssets(
       const ast = parse(content, { filename })
 
       // Import path to import name
-      // e.g. ./foo.png => __ASSET__0
+      // e.g. ./foo.png => ___ASSET___0
       const imports = new Map<string, string>()
 
       function addImport(attributeValue: {
@@ -62,7 +62,7 @@ export default function importAssets(
           imports.set(url, importName)
         }
 
-        // e.g. <img src="./foo.png" /> => <img src="{__ASSET__0}" />
+        // e.g. <img src="./foo.png" /> => <img src="{___ASSET___0}" />
         s.overwrite(attributeValue.start, attributeValue.end, `{${importName}}`)
       }
 
@@ -178,7 +178,7 @@ export default function importAssets(
 
 const IGNORE_FLAG = 'svelte-preprocess-import-assets-ignore'
 
-const DEFAULT_ASSET_PREFIX = '__ASSET__'
+const DEFAULT_ASSET_PREFIX = '___ASSET___'
 
 const ALLOWED_REL = [
   'stylesheet',
