@@ -1,6 +1,7 @@
 {
 	"name": "svelte-preprocess-import-assets",
 	"description": "Import assets in markup",
+	"version": "0.1.0",
 	"license": "MIT",
 	"author": "Bjorn Lu",
 	"types": "./dist/index.d.ts",
@@ -31,7 +32,8 @@
 		"build": "tsc && tsup src/index.ts --dts --format esm,cjs",
 		"test": "esno test/index.ts",
 		"test:update": "esno test/index.ts -u",
-		"format": "prettier -w {src,test}/**/*.{ts,svelte}"
+		"format": "prettier -w {src,test}/**/*.{ts,svelte}",
+		"prepublishOnly": "rm -rf dist && pnpm build"
 	},
 	"dependencies": {
 		"magic-string": "^0.25.7"
