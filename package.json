@@ -29,7 +29,7 @@
 		"build": "tsc && tsup src/index.ts --dts --format esm,cjs",
 		"test": "esno test/index.ts",
 		"test:update": "esno test/index.ts -u",
-		"format": "prettier -w src/**/* test/**/*"
+		"format": "prettier -w {src,test}/**/*.{ts,svelte}"
 	},
 	"dependencies": {
 		"magic-string": "^0.25.7"

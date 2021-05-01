@@ -20,7 +20,7 @@ export default function importAssets(
   let {
     sources = DEFAULT_SOURCES,
     importPrefix = DEFAULT_ASSET_PREFIX,
-    urlFilter = () => true,
+    urlFilter,
   } = options
 
   if (typeof sources === 'function') {
@@ -43,7 +43,7 @@ export default function importAssets(
       }) {
         const url = attributeValue.raw
 
-        if (!urlFilter(url)) return
+        if (urlFilter && !urlFilter(url)) return
 
         let importName = ''
 
@@ -54,13 +54,14 @@ export default function importAssets(
           imports.set(url, importName)
         }
 
+        // e.g. <img src="./foo.png" /> => <img src="{__ASSET__0}" />
         s.overwrite(attributeValue.start, attributeValue.end, `{${importName}}`)
       }
 
       let ignoreNextElement = false
 
       walk(ast.html, {
-        enter(node) {
+        enter(node: any) {
           if (node.type === 'Comment') {
             if (node.data.trim() === IGNORE_FLAG) {
               ignoreNextElement = true
@@ -72,7 +73,7 @@ export default function importAssets(
             }
 
             for (let i = 0; i < sources.length; i++) {
-              const source = sources[i]
+              const source: AssetSource = sources[i]
 
               // Compare node tag match
               if (source.tag === node.name) {
@@ -121,7 +122,7 @@ export default function importAssets(
         if (ast.module) {
           s.appendLeft(ast.module.content.start, importText)
         } else if (ast.instance) {
-          s.appendLeft(ast.module.content.start, importText)
+          s.appendLeft(ast.instance.content.start, importText)
         } else {
           s.append(`<script>${importText}</script>`)
         }
