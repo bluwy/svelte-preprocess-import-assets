@@ -45,9 +45,26 @@ The `importAssets()` function receives an optional options object for its first 
 ### sources
 
 - **Type:** `AssetSource[] | ((defaultSources: AssetSource[]) => AssetSource[])`
+
+  ```ts
+  interface AssetSource {
+    tag: string
+    srcAttributes?: string[]
+    srcsetAttributes?: string[]
+    filter?: (metadata: FilterMetadata) => boolean
+  }
+
+  interface FilterMetadata {
+    tag: string
+    attribute: string
+    value: string
+    attributes: Record<string, string>
+  }
+  ```
+
 - **Default:** See `DEFAULT_SOURCES` in [src/index.ts](./src/index.ts)
 
-  These are the sources to look for when scanning for imports. You can provide an entire different list of sources, or declare a function to access the default sources and augment it.
+  These are the sources to look for when scanning for imports. You can provide an entirely different list of sources, or declare a function to access the default sources and augment it. The supported tags and attributes are based on [html-loader](https://github.com/webpack-contrib/html-loader#sources) (except `icon-uri`).
 
   ```js
   {
@@ -57,8 +74,8 @@ The `importAssets()` function receives an optional options object for its first 
         // Also scan `data-src` and `data-srcset` of an img tag
         {
           tag: 'img',
-          srcAttrs: ['data-src'],
-          srcsetAttrs: ['data-srcset'],
+          srcAttributes: ['data-src'],
+          srcsetAttributes: ['data-srcset'],
         },
       ]
     },

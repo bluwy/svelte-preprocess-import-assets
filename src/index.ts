@@ -10,8 +10,8 @@ export interface ImportAssetsOptions {
 
 export interface AssetSource {
   tag: string
-  srcAttrs?: string[]
-  srcsetAttrs?: string[]
+  srcAttributes?: string[]
+  srcsetAttributes?: string[]
   filter?: (metadata: FilterMetadata) => boolean
 }
 
@@ -126,14 +126,14 @@ export default function importAssets(
                 }
 
                 // Check src
-                source.srcAttrs?.forEach((attr) => {
+                source.srcAttributes?.forEach((attr) => {
                   const value = getAttrValue(attr)
                   if (!value) return
                   addImport(value)
                 })
 
                 // Check srcset
-                source.srcsetAttrs?.forEach((attr) => {
+                source.srcsetAttributes?.forEach((attr) => {
                   const value = getAttrValue(attr)
                   if (!value) return
                   const srcsetRegex = /\s*([^,]\S*).*?(?:,|$)\s*/gm
@@ -230,50 +230,50 @@ const ALLOWED_META_PROPERTY = [
 const DEFAULT_SOURCES: AssetSource[] = [
   {
     tag: 'audio',
-    srcAttrs: ['src'],
+    srcAttributes: ['src'],
   },
   {
     tag: 'embed',
-    srcAttrs: ['src'],
+    srcAttributes: ['src'],
   },
   {
     tag: 'img',
-    srcAttrs: ['src'],
-    srcsetAttrs: ['srcset'],
+    srcAttributes: ['src'],
+    srcsetAttributes: ['srcset'],
   },
   {
     tag: 'input',
-    srcAttrs: ['src'],
+    srcAttributes: ['src'],
   },
   {
     tag: 'object',
-    srcAttrs: ['src'],
+    srcAttributes: ['src'],
   },
   {
     tag: 'source',
-    srcAttrs: ['src'],
-    srcsetAttrs: ['srcset'],
+    srcAttributes: ['src'],
+    srcsetAttributes: ['srcset'],
   },
   {
     tag: 'track',
-    srcAttrs: ['src'],
+    srcAttributes: ['src'],
   },
   {
     tag: 'video',
-    srcAttrs: ['poster'],
+    srcAttributes: ['poster'],
   },
   {
     tag: 'image',
-    srcAttrs: ['href', 'xlink:href'],
+    srcAttributes: ['href', 'xlink:href'],
   },
   {
     tag: 'use',
-    srcAttrs: ['href', 'xlink:href'],
+    srcAttributes: ['href', 'xlink:href'],
   },
   {
     tag: 'link',
-    srcAttrs: ['href'],
-    srcsetAttrs: ['imagesrcset'],
+    srcAttributes: ['href'],
+    srcsetAttributes: ['imagesrcset'],
     filter({ attributes }) {
       if (
         attributes.rel &&
@@ -294,7 +294,7 @@ const DEFAULT_SOURCES: AssetSource[] = [
   },
   {
     tag: 'meta',
-    srcAttrs: ['content'],
+    srcAttributes: ['content'],
     filter({ attributes }) {
       console.log(attributes)
       if (
