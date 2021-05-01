@@ -111,6 +111,10 @@ The `importAssets()` function receives an optional options object for its first 
 <img src="./assets/cool-image.png" alt="cool image" />
 ```
 
+## Attributions
+
+- [svelte-assets-preprocessor](https://github.com/pchynoweth/svelte-assets-preprocessor): Initial motivation to reduce dependencies.
+
 ## License
 
 MIT
