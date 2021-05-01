@@ -296,7 +296,6 @@ const DEFAULT_SOURCES: AssetSource[] = [
     tag: 'meta',
     srcAttributes: ['content'],
     filter({ attributes }) {
-      console.log(attributes)
       if (
         attributes.name &&
         ALLOWED_META_NAME.includes(attributes.name.trim().toLowerCase())

@@ -1,14 +1,13 @@
 import fs from 'fs/promises'
 import path from 'path'
-import assert from 'assert'
+import { test } from 'uvu'
+import assert from 'uvu/assert'
 import { preprocess } from 'svelte/compiler'
 import importAssets from '../src'
 
 const p = (...rest: string[]) => path.resolve(__dirname, ...rest)
 
-test()
-
-async function test() {
+test('Snapshot test', async () => {
   const input = await fs.readFile(p('./Input.svelte'), { encoding: 'utf-8' })
   const processed = await preprocess(input, [
     importAssets({
@@ -22,6 +21,12 @@ async function test() {
     const output = await fs.readFile(p('./Output.svelte'), {
       encoding: 'utf-8',
     })
-    assert.strictEqual(processed.code, output)
+    assert.fixture(
+      processed.code,
+      output,
+      '`Output.svelte` does not match, is it updated with `pnpm test:update`?'
+    )
   }
-}
+})
+
+test.run()
