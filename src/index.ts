@@ -150,8 +150,6 @@ export default function importAssets(
                     })
                   }
                 })
-
-                break
               }
             }
           }
