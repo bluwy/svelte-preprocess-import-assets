@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.3 - 2021-08-22
+
+### Fixed
+
+- Ignore attributes with mustache value
+
 ## 0.1.2 - 2021-05-07
 
 ### Fixed

@@ -1,6 +1,6 @@
 # svelte-preprocess-import-assets
 
-Import assets directly in your markup.
+Import assets directly in the markup.
 
 **Convert this:**
 
