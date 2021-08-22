@@ -108,9 +108,10 @@ export default function importAssets(
                   const attribute = node.attributes.find((v) => v.name === attr)
                   if (!attribute) return
 
-                  // Ensure text only, since text only attribute values will only have one element
+                  // Ensure value only consists of one element, and is of type "Text".
+                  // Which should only match instances of static `foo="bar"` attributes.
                   if (
-                    attribute.value.length > 1 &&
+                    attribute.value.length !== 1 ||
                     attribute.value[0].type !== 'Text'
                   )
                     return

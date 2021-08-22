@@ -1,3 +1,8 @@
+<script>
+  import oh from './no.png'
+</script>
+
+<img src={oh} />
 <audio src="./foo.mp3" />
 <embed src="./foo.pdf" />
 <img src="./foo.png" />
