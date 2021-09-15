@@ -1,7 +1,9 @@
-<script>
+<script lang="ts">
   import oh from './no.png'
+  const foo: string = 'bar'
 </script>
 
+{foo}
 <img src={oh} />
 <audio src="./foo.mp3" />
 <embed src="./foo.pdf" />
@@ -31,3 +33,10 @@
 <meta property="og:image" content="./foo.png" />
 <meta itemprop="embedurl" content="./foo.mp3" />
 <img src="https://example.com/foo.png" />
+
+<style lang="scss">
+  $text-color: #fff;
+  img {
+    color: $text-color;
+  }
+</style>
