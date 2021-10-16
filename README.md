@@ -34,9 +34,15 @@ Include the preprocessor in your bundler's Svelte plugin `preprocess` option:
 import importAssets from 'svelte-preprocess-import-assets'
 
 svelte({ preprocess: [importAssets()] })
+
+// or in svelte.config.js
+const config = {
+  preprocess: [importAssets()],
+  // ... other svelte options
+};
 ```
 
-[Here is more information](https://github.com/sveltejs/svelte-preprocess/blob/9e587151e9384b819d7b285caba7231c138942f0/docs/usage.md) on how to integrate it with your bundler.
+[Here is more information](https://github.com/sveltejs/svelte-preprocess/blob/main/docs/usage.md) on how to integrate it with your bundler.
 
 ## API
 
