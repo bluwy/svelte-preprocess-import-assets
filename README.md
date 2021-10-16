@@ -34,10 +34,11 @@ Include the preprocessor in your bundler's Svelte plugin `preprocess` option:
 import importAssets from 'svelte-preprocess-import-assets'
 
 svelte({ preprocess: [importAssets()] })
-// OR
+
+// or in svelte.config.js
 const config = {
   preprocess: [importAssets()],
-  // ...other svelte options
+  // ... other svelte options
 };
 ```
 
