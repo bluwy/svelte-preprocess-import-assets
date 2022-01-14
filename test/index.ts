@@ -1,15 +1,17 @@
 import fs from 'fs/promises'
 import path from 'path'
+import { fileURLToPath } from 'url'
 import { test } from 'uvu'
-import assert from 'uvu/assert'
+import * as assert from 'uvu/assert'
 import { preprocess } from 'svelte/compiler'
 import sveltePreprocess from 'svelte-preprocess'
 import { PreprocessorGroup } from 'svelte-preprocess/dist/types'
-import importAssets from '../src'
+import importAssets from '../src/index.js'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const p = (...rest: string[]) => path.resolve(__dirname, ...rest)
 
-// TODO: More test
 test('Snapshot test', async () => {
   const input = await fs.readFile(p('./Input.svelte'), { encoding: 'utf-8' })
   const processed = await preprocess(
@@ -26,14 +28,17 @@ test('Snapshot test', async () => {
     { filename: 'Input.svelte' }
   )
 
+  // Make imports readable
+  const outputCode = processed.code.replace(/import/g, `\nimport`)
+
   if (process.argv.slice(2).includes('-u')) {
-    await fs.writeFile(p('./Output.svelte'), processed.code)
+    await fs.writeFile(p('./Output.svelte'), outputCode)
   } else {
     const output = await fs.readFile(p('./Output.svelte'), {
       encoding: 'utf-8',
     })
     assert.fixture(
-      processed.code,
+      outputCode,
       output,
       '`Output.svelte` does not match, is it updated with `pnpm test:update`?'
     )
