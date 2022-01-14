@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.4 - 2022-01-14
+
+### Fixed
+
+- Skip URL that starts with a hash
+
 ## 0.1.3 - 2021-08-22
 
 ### Fixed
