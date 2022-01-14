@@ -33,8 +33,8 @@
 	],
 	"scripts": {
 		"build": "tsc && tsup src/index.ts --dts --no-splitting --format esm,cjs",
-		"test": "esno test/index.ts",
-		"test:update": "esno test/index.ts -u",
+		"test": "tsm test/index.ts",
+		"test:update": "tsm test/index.ts -u",
 		"format": "prettier -w {src,test}/**/*.{ts,svelte}",
 		"prepublishOnly": "rm -rf dist && pnpm build"
 	},
@@ -46,12 +46,12 @@
 	},
 	"devDependencies": {
 		"@types/node": "^17.0.0",
-		"esno": "^0.14.0",
 		"prettier": "^2.5.1",
 		"prettier-plugin-svelte": "^2.6.0",
 		"sass": "^1.48.0",
 		"svelte": "^3.46.1",
 		"svelte-preprocess": "^4.10.1",
+		"tsm": "^2.2.1",
 		"tsup": "^5.11.11",
 		"typescript": "^4.5.4",
 		"uvu": "^0.5.3"
