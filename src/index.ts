@@ -53,6 +53,9 @@ export default function importAssets(
       }) {
         const url = attributeValue.raw.trim()
 
+        // Skip if url points to id, e.g. sprite sheets
+        if (url.startsWith('#')) return
+
         if (!http && /^https?:\/\//.test(url)) return
 
         if (urlFilter && !urlFilter(url)) return
