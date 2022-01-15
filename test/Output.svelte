@@ -22,6 +22,7 @@ const foo = 'bar';
 <source srcset="{___ASSET___4} 500v ./bar.mp4 100v" />
 <track src="{___ASSET___0}" />
 <video poster="{___ASSET___4}" />
+<video src="{___ASSET___4}" />
 <image href="{___ASSET___4}" xlink:href="{___ASSET___4}" />
 <use href="{___ASSET___4}" xlink:href="{___ASSET___4}" />
 <!-- svelte-preprocess-

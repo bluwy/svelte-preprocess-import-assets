@@ -15,6 +15,7 @@
 <source srcset="./foo.mp4 500v ./bar.mp4 100v" />
 <track src="./foo.mp3" />
 <video poster="./foo.mp4" />
+<video src="./foo.mp4" />
 <image href="./foo.mp4" xlink:href="./foo.mp4" />
 <use href="./foo.mp4" xlink:href="./foo.mp4" />
 <!-- svelte-preprocess-import-assets-ignore -->
