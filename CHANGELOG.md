@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.5 - 2022-01-15
+
+### Fixed
+
+- Handle `src` attribute for `video` tags
+
 ## 0.1.4 - 2022-01-14
 
 ### Fixed

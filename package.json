@@ -1,7 +1,7 @@
 {
 	"name": "svelte-preprocess-import-assets",
 	"description": "Import assets in markup",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"license": "MIT",
 	"author": "Bjorn Lu",
 	"types": "./dist/index.d.ts",
