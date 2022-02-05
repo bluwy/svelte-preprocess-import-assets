@@ -266,7 +266,7 @@ const DEFAULT_SOURCES: AssetSource[] = [
   },
   {
     tag: 'video',
-    srcAttributes: ['poster', 'src']
+    srcAttributes: ['poster', 'src'],
   },
   {
     tag: 'image',
