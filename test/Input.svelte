@@ -13,6 +13,7 @@
 <object src="./foo.pdf" />
 <source src="./foo.mp4" />
 <source srcset="./foo.mp4 500v ./bar.mp4 100v" />
+<source srcset="./foo.mp4, ./bar.mp4 1v" />
 <track src="./foo.mp3" />
 <video poster="./foo.mp4" />
 <video src="./foo.mp4" />

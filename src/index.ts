@@ -144,7 +144,7 @@ export default function importAssets(
                 source.srcsetAttributes?.forEach((attr) => {
                   const value = getAttrValue(attr)
                   if (!value) return
-                  const srcsetRegex = /\s*([^,]\S*).*?(?:,|$)\s*/gm
+                  const srcsetRegex = /\s*([^,\s]+).*?(?:,|$)\s*/gm
                   let match: RegExpExecArray
                   while ((match = srcsetRegex.exec(value.raw))) {
                     addImport({

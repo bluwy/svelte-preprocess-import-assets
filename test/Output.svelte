@@ -4,8 +4,9 @@ import ___ASSET___1 from "./foo.pdf";
 import ___ASSET___2 from "./foo.png";
 import ___ASSET___3 from "./foo.jpg";
 import ___ASSET___4 from "./foo.mp4";
-import ___ASSET___5 from "./foo.css";
-import ___ASSET___6 from "./bar.css";
+import ___ASSET___5 from "./bar.mp4";
+import ___ASSET___6 from "./foo.css";
+import ___ASSET___7 from "./bar.css";
 import oh from './no.png';
 const foo = 'bar';
 </script>
@@ -20,6 +21,7 @@ const foo = 'bar';
 <object src="{___ASSET___1}" />
 <source src="{___ASSET___4}" />
 <source srcset="{___ASSET___4} 500v ./bar.mp4 100v" />
+<source srcset="{___ASSET___4}, {___ASSET___5} 1v" />
 <track src="{___ASSET___0}" />
 <video poster="{___ASSET___4}" />
 <video src="{___ASSET___4}" />
@@ -32,8 +34,8 @@ import-assets-ignore -->
 <img src="./foo.exe" />
 <link
   rel="stylesheet"
-  href="{___ASSET___5}"
-  imagesrcset="{___ASSET___5} 100v, {___ASSET___6} 200v"
+  href="{___ASSET___6}"
+  imagesrcset="{___ASSET___6} 100v, {___ASSET___7} 200v"
 />
 <link href="./foo.css" />
 <link itemprop="logo" href="{___ASSET___3}" />
