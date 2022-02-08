@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.6 - 2022-02-08
+
+### Fixed
+
+- Handle `srcset` without width, e,g. `./foo.mp4, ./bar.mp4 1v`
+
 ## 0.1.5 - 2022-01-15
 
 ### Fixed
