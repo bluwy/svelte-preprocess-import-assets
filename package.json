@@ -1,7 +1,7 @@
 {
 	"name": "svelte-preprocess-import-assets",
 	"description": "Import assets in markup",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"license": "MIT",
 	"author": "Bjorn Lu",
 	"types": "./dist/index.d.ts",
@@ -45,7 +45,7 @@
 		"svelte": "^3.37.0"
 	},
 	"devDependencies": {
-		"@types/node": "^17.0.15",
+		"@types/node": "^17.0.16",
 		"prettier": "^2.5.1",
 		"prettier-plugin-svelte": "^2.6.0",
 		"sass": "^1.49.7",
