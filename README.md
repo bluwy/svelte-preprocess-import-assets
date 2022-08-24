@@ -126,7 +126,9 @@ The `importAssets()` function receives an optional options object for its first 
 
 ### Using with svelte-preprocess
 
-Due to how Svelte applies preprocessors, using this with `svelte-preprocess` needs a bit more work to make sure we run this preprocessor **only after** `svelte-preprocess` finishes. There's [an RFC](https://github.com/sveltejs/rfcs/pull/56) to make this process clearer soon.
+This preprocessor uses Svelte's AST and calls `svelte.parse` and `svelte.walk`. As those only work on pure Svelte files, some extra work is needed to run all other preprocessors to completion first.
+
+Svelte runs markup, then script, then syle preprocessors, so using this with `svelte-preprocess` needs a bit more work to make sure we run this preprocessor **only after** `svelte-preprocess` finishes. There's [an RFC](https://github.com/sveltejs/rfcs/pull/56) to make this process clearer soon.
 
 At the meantime, you can try one of these libraries:
 
