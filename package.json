@@ -39,21 +39,21 @@
 		"prepublishOnly": "rm -rf dist && pnpm build"
 	},
 	"dependencies": {
-		"magic-string": "^0.25.7"
+		"magic-string": "^0.25.9"
 	},
 	"peerDependencies": {
 		"svelte": "^3.37.0"
 	},
 	"devDependencies": {
-		"@types/node": "^17.0.16",
-		"prettier": "^2.5.1",
-		"prettier-plugin-svelte": "^2.6.0",
-		"sass": "^1.49.7",
-		"svelte": "^3.46.4",
-		"svelte-preprocess": "^4.10.2",
-		"tsm": "^2.2.1",
-		"tsup": "^5.11.13",
-		"typescript": "^4.5.5",
-		"uvu": "^0.5.3"
+		"@types/node": "^18.7.23",
+		"prettier": "^2.7.1",
+		"prettier-plugin-svelte": "^2.7.1",
+		"sass": "^1.55.0",
+		"svelte": "^3.50.1",
+		"svelte-preprocess": "^4.10.7",
+		"tsm": "^2.2.2",
+		"tsup": "^6.2.3",
+		"typescript": "^4.8.4",
+		"uvu": "^0.5.6"
 	}
 }
