@@ -1,8 +1,9 @@
-import { parse, walk } from 'svelte/compiler'
+import { walk } from 'svelte/compiler'
 import { PreprocessorGroup } from 'svelte/types/compiler/preprocess'
+import { parse } from 'svelte-parse-markup'
 import MagicString from 'magic-string'
 import { DEFAULT_SOURCES, DEFAULT_ASSET_PREFIX, IGNORE_FLAG } from './constants'
-import { ImportAssetsOptions, AssetSource, FilterMetadata } from './types'
+import type { ImportAssetsOptions, AssetSource, FilterMetadata } from './types'
 
 export { ImportAssetsOptions, AssetSource, FilterMetadata }
 

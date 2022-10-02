@@ -7,8 +7,9 @@ import ___ASSET___4 from "./foo.mp4";
 import ___ASSET___5 from "./bar.mp4";
 import ___ASSET___6 from "./foo.css";
 import ___ASSET___7 from "./bar.css";
-import oh from './no.png';
-const foo = 'bar';
+  
+import oh from './no.png'
+  const foo: string = 'bar'
 </script>
 
 {foo}
@@ -83,6 +84,9 @@ import-assets/issues/4 -->
   </span>
 </p>
 
-<style lang="scss">img {
-  color: #fff;
-}</style>
+<style lang="scss">
+  $text-color: #fff;
+  img {
+    color: $text-color;
+  }
+</style>

@@ -4,8 +4,6 @@ import { fileURLToPath } from 'url'
 import { test } from 'uvu'
 import * as assert from 'uvu/assert'
 import { preprocess } from 'svelte/compiler'
-import sveltePreprocess from 'svelte-preprocess'
-import { PreprocessorGroup } from 'svelte-preprocess/dist/types'
 import importAssets from '../src/index.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -16,15 +14,11 @@ test('Snapshot test', async () => {
   const input = await fs.readFile(p('./Input.svelte'), { encoding: 'utf-8' })
   const processed = await preprocess(
     input,
-    sequence([
-      sveltePreprocess({
-        typescript: true,
-        sass: true,
-      }),
+    [
       importAssets({
         urlFilter: (v) => !/\.(abc|exe)$/.test(v),
       }),
-    ]),
+    ],
     { filename: 'Input.svelte' }
   )
 
@@ -46,12 +40,3 @@ test('Snapshot test', async () => {
 })
 
 test.run()
-
-// https://gist.github.com/bluwy/5fc6f97768b7f065df4e2dbb1366db4c
-function sequence(preprocessors: PreprocessorGroup[]): PreprocessorGroup[] {
-  return preprocessors.map((preprocessor) => ({
-    markup({ content, filename }) {
-      return preprocess(content, preprocessor, { filename })
-    },
-  }))
-}
