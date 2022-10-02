@@ -39,7 +39,7 @@ svelte({ preprocess: [importAssets()] })
 const config = {
   preprocess: [importAssets()],
   // ... other svelte options
-};
+}
 ```
 
 [Here is more information](https://github.com/sveltejs/svelte-preprocess/blob/main/docs/usage.md) on how to integrate it with your bundler.
@@ -123,18 +123,6 @@ The `importAssets()` function receives an optional options object for its first 
 <!-- svelte-preprocess-import-assets-ignore -->
 <img src="./assets/cool-image.png" alt="cool image" />
 ```
-
-### Using with svelte-preprocess
-
-This preprocessor uses Svelte's AST and calls `svelte.parse` and `svelte.walk`. As those only work on pure Svelte files, some extra work is needed to run all other preprocessors to completion first.
-
-Svelte runs markup, then script, then syle preprocessors, so using this with `svelte-preprocess` needs a bit more work to make sure we run this preprocessor **only after** `svelte-preprocess` finishes. There's [an RFC](https://github.com/sveltejs/rfcs/pull/56) to make this process clearer soon.
-
-At the meantime, you can try one of these libraries:
-
-- [svelte-sequential-preprocessor](https://github.com/pchynoweth/svelte-sequential-preprocessor)
-- [svelte-as-markup-preprocessor](https://github.com/firefish5000/svelte-as-markup-preprocessor)
-- [My custom gist](https://gist.github.com/bluwy/5fc6f97768b7f065df4e2dbb1366db4c)
 
 ## Attributions
 
