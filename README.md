@@ -68,7 +68,7 @@ The `importAssets()` function receives an optional options object for its first 
   }
   ```
 
-- **Default:** See `DEFAULT_SOURCES` in [src/index.ts](./src/index.ts)
+- **Default:** See `DEFAULT_SOURCES` in [src/constants.ts](./src/constants.ts)
 
   These are the sources to look for when scanning for imports. You can provide an entirely different list of sources, or declare a function to access the default sources and augment it. The supported tags and attributes are based on [html-loader](https://github.com/webpack-contrib/html-loader#sources) (except `icon-uri`).
 
@@ -104,7 +104,7 @@ The `importAssets()` function receives an optional options object for its first 
 
 ### urlFilter
 
-- **Type:** `() => boolean`
+- **Type:** `(url: string) => boolean`
 
   Whether a URL should be converted into an import.
 

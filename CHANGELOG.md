@@ -1,8 +1,12 @@
 # Changelog
 
+## 0.2.1 - 2022-08-03
+
+- Update docs
+
 ## 0.2.0 - 2022-08-02
 
-Use `svelte-parse-markup` to parse Svelte template without sequence trick
+- Use `svelte-parse-markup` to parse Svelte template without sequence trick
 
 ## 0.1.6 - 2022-02-08
 

@@ -7,7 +7,7 @@ specifiers:
   prettier-plugin-svelte: ^2.7.1
   sass: ^1.55.0
   svelte: ^3.50.1
-  svelte-parse-markup: ^0.1.0
+  svelte-parse-markup: ^0.1.1
   svelte-preprocess: ^4.10.7
   tsm: ^2.2.2
   tsup: ^6.2.3
@@ -16,7 +16,7 @@ specifiers:
 
 dependencies:
   magic-string: 0.25.9
-  svelte-parse-markup: 0.1.0_svelte@3.50.1
+  svelte-parse-markup: 0.1.1_svelte@3.50.1
 
 devDependencies:
   '@types/node': 18.7.23
@@ -1127,8 +1127,8 @@ packages:
       ts-interface-checker: 0.1.13
     dev: true
 
-  /svelte-parse-markup/0.1.0_svelte@3.50.1:
-    resolution: {integrity: sha512-d8Jl5Wh4m+8paZ98GUiMqXiEGXVUj0X9npnV1+bGGmEMq6PwW8oVTXU0r1xdlL9Xsv8fpS5/X/L95BiAkmwZ7w==}
+  /svelte-parse-markup/0.1.1_svelte@3.50.1:
+    resolution: {integrity: sha512-xCBSldaZdwi0u0ANASVCUFynCaV8z5D6sQOnzPcYSEoD9dd40MLzOKMBVmuTf/LUuPvc+cUvF132MnwdG7mDig==}
     peerDependencies:
       svelte: ^3.0.0
     dependencies:
