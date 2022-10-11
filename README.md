@@ -70,7 +70,7 @@ The `importAssets()` function receives an optional options object for its first 
 
 - **Default:** See `DEFAULT_SOURCES` in [src/constants.ts](./src/constants.ts)
 
-  These are the sources to look for when scanning for imports. You can provide an entirely different list of sources, or declare a function to access the default sources and augment it. The supported tags and attributes are based on [html-loader](https://github.com/webpack-contrib/html-loader#sources) (except `icon-uri`).
+  These are the sources to look for when scanning for imports. You can provide an entirely different list of sources, or declare a function to access the default sources and augment it. The supported tags and attributes are based on [html-loader](https://github.com/webpack-contrib/html-loader#sources) (except `icon-uri`). Component name as `tag` is also supported.
 
   ```js
   {
@@ -127,6 +127,14 @@ The `importAssets()` function receives an optional options object for its first 
 ## Attributions
 
 - [svelte-assets-preprocessor](https://github.com/pchynoweth/svelte-assets-preprocessor): Initial motivation to reduce dependencies.
+
+## Sponsors
+
+<p align="center">
+  <a href="https://bjornlu.com/sponsors.svg">
+    <img src="https://bjornlu.com/sponsors.svg" alt="Sponsors" />
+  </a>
+</p>
 
 ## License
 
