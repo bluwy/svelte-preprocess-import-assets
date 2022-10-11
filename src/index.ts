@@ -17,7 +17,9 @@ export default function importAssets(
     urlFilter,
   } = options
 
+  let hasCustomSources = false
   if (typeof sources === 'function') {
+    hasCustomSources = true
     sources = sources(DEFAULT_SOURCES)
   }
 
@@ -65,7 +67,12 @@ export default function importAssets(
             if (node.data.trim() === IGNORE_FLAG) {
               ignoreNextElement = true
             }
-          } else if (node.type === 'Element') {
+          } else if (
+            node.type === 'Element' ||
+            // check component only when have custom sources, as the default object
+            // does not support component names (optimization)
+            (hasCustomSources && node.type === 'InlineComponent')
+          ) {
             if (ignoreNextElement) {
               ignoreNextElement = false
               return

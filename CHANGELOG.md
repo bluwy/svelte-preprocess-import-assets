@@ -1,10 +1,14 @@
 # Changelog
 
-## 0.2.1 - 2022-08-03
+## 0.2.2 - 2022-10-11
+
+- Support component names in sources
+
+## 0.2.1 - 2022-10-03
 
 - Update docs
 
-## 0.2.0 - 2022-08-02
+## 0.2.0 - 2022-10-02
 
 - Use `svelte-parse-markup` to parse Svelte template without sequence trick
 

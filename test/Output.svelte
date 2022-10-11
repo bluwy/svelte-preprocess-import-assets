@@ -45,6 +45,8 @@ import-assets-ignore -->
 <meta property="og:image" content="{___ASSET___2}" />
 <meta itemprop="embedurl" content="{___ASSET___0}" />
 <img src="https://example.com/foo.png" />
+<Image src="{___ASSET___2}" />
+<Img src="./bar.png" />
 
 <!-- https://github.com/bluwy/svelte-preprocess-
 import-assets/issues/4 -->

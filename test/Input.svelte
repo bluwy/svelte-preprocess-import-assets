@@ -35,6 +35,8 @@
 <meta property="og:image" content="./foo.png" />
 <meta itemprop="embedurl" content="./foo.mp3" />
 <img src="https://example.com/foo.png" />
+<Image src="./foo.png" />
+<Img src="./bar.png" />
 
 <!-- https://github.com/bluwy/svelte-preprocess-import-assets/issues/4 -->
 <!-- mathjax or image sprite sheet patterns reference the sprites with an id, preprocess should ignore them -->

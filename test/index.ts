@@ -17,6 +17,15 @@ test('Snapshot test', async () => {
     [
       importAssets({
         urlFilter: (v) => !/\.(abc|exe)$/.test(v),
+        sources(defaultSources) {
+          return [
+            ...defaultSources,
+            {
+              tag: 'Image',
+              srcAttributes: ['src'],
+            },
+          ]
+        },
       }),
     ],
     { filename: 'Input.svelte' }
