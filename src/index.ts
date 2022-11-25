@@ -1,6 +1,5 @@
 import { walk } from 'svelte/compiler'
 import { PreprocessorGroup } from 'svelte/types/compiler/preprocess'
-import { parse } from 'svelte-parse-markup'
 import MagicString from 'magic-string'
 import { DEFAULT_SOURCES, DEFAULT_ASSET_PREFIX, IGNORE_FLAG } from './constants'
 import type { ImportAssetsOptions, AssetSource, FilterMetadata } from './types'
@@ -23,8 +22,15 @@ export default function importAssets(
     sources = sources(DEFAULT_SOURCES)
   }
 
+  let parse: typeof import('svelte-parse-markup').parse
+
   return {
-    markup({ content, filename }) {
+    async markup({ content, filename }) {
+      if (!parse) {
+        // esm only
+        parse = (await import('svelte-parse-markup')).parse
+      }
+
       const s = new MagicString(content)
       const ast = parse(content, { filename })
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.3 - 2022-11-25
+
+- Fix CJS usage
+
 ## 0.2.2 - 2022-10-11
 
 - Support component names in sources
