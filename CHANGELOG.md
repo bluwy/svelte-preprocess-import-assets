@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- `link` `imagesrcset` should not be processed if have valid `itemprop` for `href` only
+
 ## 0.2.3 - 2022-11-25
 
 - Fix CJS usage

@@ -28,6 +28,7 @@
   href="./foo.css"
   imagesrcset="./foo.css 100v, ./bar.css 200v"
 />
+<link imagesrcset="ignore" itemprop="image" />
 <link href="./foo.css" />
 <link itemprop="logo" href="./foo.jpg" />
 <meta name="author" content="Bjorn Lu" />

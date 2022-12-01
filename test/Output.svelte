@@ -38,6 +38,7 @@ import-assets-ignore -->
   href="{___ASSET___6}"
   imagesrcset="{___ASSET___6} 100v, {___ASSET___7} 200v"
 />
+<link imagesrcset="ignore" itemprop="image" />
 <link href="./foo.css" />
 <link itemprop="logo" href="{___ASSET___3}" />
 <meta name="author" content="Bjorn Lu" />

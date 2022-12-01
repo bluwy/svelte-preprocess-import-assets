@@ -98,7 +98,7 @@ export const DEFAULT_SOURCES: AssetSource[] = [
     tag: 'link',
     srcAttributes: ['href'],
     srcsetAttributes: ['imagesrcset'],
-    filter({ attributes }) {
+    filter({ attribute, attributes }) {
       if (
         attributes.rel &&
         ALLOWED_REL.includes(attributes.rel.trim().toLowerCase())
@@ -107,6 +107,7 @@ export const DEFAULT_SOURCES: AssetSource[] = [
       }
 
       if (
+        attribute !== 'imagesrcset' &&
         attributes.itemprop &&
         ALLOWED_ITEMPROP.includes(attributes.itemprop.trim().toLowerCase())
       ) {
