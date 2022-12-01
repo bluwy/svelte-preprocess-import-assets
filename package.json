@@ -34,7 +34,7 @@
 		"build": "tsc && tsup src/index.ts --dts --no-splitting --format esm,cjs",
 		"test": "tsm test/index.ts",
 		"test:update": "tsm test/index.ts -u",
-		"format": "prettier -w {src,test}/**/*.{ts,svelte}",
+		"format": "prettier -w {src,test}/**/*",
 		"prepublishOnly": "rm -rf dist && pnpm build"
 	},
 	"packageManager": "pnpm@7.13.0",
@@ -46,15 +46,15 @@
 		"svelte": "^3.37.0"
 	},
 	"devDependencies": {
-		"@types/node": "^18.7.23",
-		"prettier": "^2.7.1",
-		"prettier-plugin-svelte": "^2.7.1",
-		"sass": "^1.55.0",
-		"svelte": "^3.50.1",
+		"@types/node": "^18.11.10",
+		"prettier": "^2.8.0",
+		"prettier-plugin-svelte": "^2.8.1",
+		"sass": "^1.56.1",
+		"svelte": "^3.53.1",
 		"svelte-preprocess": "^4.10.7",
-		"tsm": "^2.2.2",
-		"tsup": "^6.2.3",
-		"typescript": "^4.8.4",
+		"tsm": "^2.3.0",
+		"tsup": "^6.5.0",
+		"typescript": "^4.9.3",
 		"uvu": "^0.5.6"
 	}
 }
