@@ -36,7 +36,7 @@ import importAssets from 'svelte-preprocess-import-assets'
 svelte({ preprocess: [importAssets()] })
 
 // or in svelte.config.js
-const config = {
+export default {
   preprocess: [importAssets()],
   // ... other svelte options
 }
