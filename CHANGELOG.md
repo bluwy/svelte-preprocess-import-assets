@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.5 - 2022-12-10
+
+- Update `magic-string` to 0.27.0
+
 ## 0.2.4 - 2022-12-01
 
 - `link` `imagesrcset` should not be processed if have valid `itemprop` for `href` only

@@ -62,7 +62,7 @@ export default function importAssets(
         }
 
         // e.g. <img src="./foo.png" /> => <img src="{___ASSET___0}" />
-        s.overwrite(attributeValue.start, attributeValue.end, `{${importName}}`)
+        s.update(attributeValue.start, attributeValue.end, `{${importName}}`)
       }
 
       let ignoreNextElement = false
