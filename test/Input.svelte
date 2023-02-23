@@ -36,6 +36,7 @@
 <meta property="og:image" content="./foo.png" />
 <meta itemprop="embedurl" content="./foo.mp3" />
 <img src="https://example.com/foo.png" />
+<img src="./foo.png" {...{foo}} />
 <Image src="./foo.png" />
 <Img src="./bar.png" />
 

@@ -24,6 +24,14 @@ test('Snapshot test', async () => {
               tag: 'Image',
               srcAttributes: ['src'],
             },
+            {
+              tag: 'img',
+              srcAttributes: ['src'],
+              filter() {
+                // dummy source, make sure no errors only
+                return false
+              },
+            },
           ]
         },
       }),

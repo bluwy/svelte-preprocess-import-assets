@@ -46,6 +46,7 @@ import-assets-ignore -->
 <meta property="og:image" content="{___ASSET___2}" />
 <meta itemprop="embedurl" content="{___ASSET___0}" />
 <img src="https://example.com/foo.png" />
+<img src="{___ASSET___2}" {...{foo}} />
 <Image src="{___ASSET___2}" />
 <Img src="./bar.png" />
 

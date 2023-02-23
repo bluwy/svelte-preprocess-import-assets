@@ -90,6 +90,7 @@ export default function importAssets(
               if (!lazyAttributes) {
                 lazyAttributes = {}
                 node.attributes.forEach((attr: any) => {
+                  if (attr.type !== 'Attribute') return
                   // Ensure text only, since text only attribute values will only have one element
                   if (attr.value.length > 1 && attr.value[0].type !== 'Text')
                     return
@@ -105,7 +106,9 @@ export default function importAssets(
               // Compare node tag match
               if (source.tag === node.name) {
                 function getAttrValue(attr: string) {
-                  const attribute = node.attributes.find((v) => v.name === attr)
+                  const attribute = node.attributes.find(
+                    (v) => v.type === 'Attribute' && v.name === attr
+                  )
                   if (!attribute) return
 
                   // Ensure value only consists of one element, and is of type "Text".
