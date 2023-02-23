@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.6 - 2023-02-23
+
+- Handle actual attributes only. Ignore spread, actions, etc.
+- Add `types` export condition
+- Update `magic-string` to 0.30.0
+
 ## 0.2.5 - 2022-12-10
 
 - Update `magic-string` to 0.27.0
