@@ -23,7 +23,7 @@ export function importAssets(options = {}) {
   }
 
   return {
-    async markup({ content, filename }) {
+    markup({ content, filename }) {
       const s = new MagicString(content)
       const ast = parse(content, { filename })
 
@@ -125,7 +125,7 @@ export function importAssets(options = {}) {
                     !source.filter({
                       tag: source.tag,
                       attribute: attr,
-                      value: content.slice(attribute.start, attribute.end),
+                      value: attribute.value[0].data,
                       attributes: getAttributes(),
                     })
                   )
