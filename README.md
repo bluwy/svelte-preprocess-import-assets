@@ -25,13 +25,13 @@ Import assets directly in the markup.
 Install with your package manager:
 
 ```bash
-npm install svelte-preprocess-import-assets
+npm install --save-dev svelte-preprocess-import-assets
 ```
 
 Include the preprocessor in your bundler's Svelte plugin `preprocess` option:
 
 ```js
-import importAssets from 'svelte-preprocess-import-assets'
+import { importAssets } from 'svelte-preprocess-import-assets'
 
 svelte({ preprocess: [importAssets()] })
 
@@ -41,8 +41,6 @@ export default {
   // ... other svelte options
 }
 ```
-
-[Here is more information](https://github.com/sveltejs/svelte-preprocess/blob/main/docs/usage.md) on how to integrate it with your bundler.
 
 ## API
 
@@ -68,7 +66,7 @@ The `importAssets()` function receives an optional options object for its first 
   }
   ```
 
-- **Default:** See `DEFAULT_SOURCES` in [src/constants.ts](./src/constants.ts)
+- **Default:** See `DEFAULT_SOURCES` in [src/constants.js](./src/constants.js)
 
   These are the sources to look for when scanning for imports. You can provide an entirely different list of sources, or declare a function to access the default sources and augment it. The supported tags and attributes are based on [html-loader](https://github.com/webpack-contrib/html-loader#sources) (except `icon-uri`). Component name as `tag` is also supported.
 

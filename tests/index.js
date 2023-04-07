@@ -1,14 +1,14 @@
-import fs from 'fs/promises'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import fs from 'node:fs/promises'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { test } from 'uvu'
 import * as assert from 'uvu/assert'
 import { preprocess } from 'svelte/compiler'
-import importAssets from '../src/index.js'
+import { importAssets } from '../src/index.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const p = (...rest: string[]) => path.resolve(__dirname, ...rest)
+const p = (...rest) => path.resolve(__dirname, ...rest)
 
 test('Snapshot test', async () => {
   const input = await fs.readFile(p('./Input.svelte'), { encoding: 'utf-8' })

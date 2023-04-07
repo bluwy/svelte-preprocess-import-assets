@@ -1,5 +1,3 @@
-import { AssetSource } from './types'
-
 export const IGNORE_FLAG = 'svelte-preprocess-import-assets-ignore'
 
 export const DEFAULT_ASSET_PREFIX = '___ASSET___'
@@ -51,7 +49,8 @@ export const ALLOWED_META_PROPERTY = [
   'vk:image',
 ]
 
-export const DEFAULT_SOURCES: AssetSource[] = [
+/** @type {import('.').AssetSource[]} */
+export const DEFAULT_SOURCES = [
   {
     tag: 'audio',
     srcAttributes: ['src'],

@@ -1,14 +1,14 @@
-import { walk } from 'svelte/compiler'
-import { PreprocessorGroup } from 'svelte/types/compiler/preprocess'
 import MagicString from 'magic-string'
-import { DEFAULT_SOURCES, DEFAULT_ASSET_PREFIX, IGNORE_FLAG } from './constants'
-import type { ImportAssetsOptions, AssetSource, FilterMetadata } from './types'
+import { parse } from 'svelte-parse-markup'
+import { walk } from 'svelte/compiler'
+import {
+  DEFAULT_SOURCES,
+  DEFAULT_ASSET_PREFIX,
+  IGNORE_FLAG,
+} from './constants.js'
 
-export { ImportAssetsOptions, AssetSource, FilterMetadata }
-
-export default function importAssets(
-  options: ImportAssetsOptions = {}
-): PreprocessorGroup {
+/** @type {import('.').importAssets} */
+export function importAssets(options = {}) {
   let {
     sources = DEFAULT_SOURCES,
     importPrefix = DEFAULT_ASSET_PREFIX,
@@ -22,27 +22,20 @@ export default function importAssets(
     sources = sources(DEFAULT_SOURCES)
   }
 
-  let parse: typeof import('svelte-parse-markup').parse
-
   return {
     async markup({ content, filename }) {
-      if (!parse) {
-        // esm only
-        parse = (await import('svelte-parse-markup')).parse
-      }
-
       const s = new MagicString(content)
       const ast = parse(content, { filename })
 
       // Import path to import name
       // e.g. ./foo.png => ___ASSET___0
-      const imports = new Map<string, string>()
+      /** @type {Map<string, string>} */
+      const imports = new Map()
 
-      function addImport(attributeValue: {
-        raw: string
-        start: number
-        end: number
-      }) {
+      /**
+       * @param {{ raw: string, start: number, end: number }} attributeValue
+       */
+      function addImport(attributeValue) {
         const url = attributeValue.raw.trim()
 
         // Skip if url points to id, e.g. sprite sheets
@@ -68,7 +61,10 @@ export default function importAssets(
       let ignoreNextElement = false
 
       walk(ast.html, {
-        enter(node: any) {
+        /**
+         * @param {any} node
+         */
+        enter(node) {
           if (node.type === 'Comment') {
             if (node.data.trim() === IGNORE_FLAG) {
               ignoreNextElement = true
@@ -84,12 +80,13 @@ export default function importAssets(
               return
             }
 
-            let lazyAttributes: Record<string, string> | undefined
+            /** @type {Record<string, string> | undefined} */
+            let lazyAttributes
 
             function getAttributes() {
               if (!lazyAttributes) {
                 lazyAttributes = {}
-                node.attributes.forEach((attr: any) => {
+                node.attributes.forEach((attr) => {
                   if (attr.type !== 'Attribute') return
                   // Ensure text only, since text only attribute values will only have one element
                   if (attr.value.length > 1 && attr.value[0].type !== 'Text')
@@ -101,11 +98,15 @@ export default function importAssets(
             }
 
             for (let i = 0; i < sources.length; i++) {
-              const source: AssetSource = sources[i]
+              /** @type {import('.').AssetSource} */
+              const source = sources[i]
 
               // Compare node tag match
               if (source.tag === node.name) {
-                function getAttrValue(attr: string) {
+                /**
+                 * @param {string} attr
+                 */
+                function getAttrValue(attr) {
                   const attribute = node.attributes.find(
                     (v) => v.type === 'Attribute' && v.name === attr
                   )
@@ -145,7 +146,7 @@ export default function importAssets(
                   const value = getAttrValue(attr)
                   if (!value) return
                   const srcsetRegex = /\s*([^,\s]+).*?(?:,|$)\s*/gm
-                  let match: RegExpExecArray
+                  let match
                   while ((match = srcsetRegex.exec(value.raw))) {
                     addImport({
                       raw: match[1],

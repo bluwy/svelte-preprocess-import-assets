@@ -1,3 +1,5 @@
+import { PreprocessorGroup } from 'svelte/types/compiler/preprocess'
+
 export interface ImportAssetsOptions {
   sources?: AssetSource[] | ((defaultSources: AssetSource[]) => AssetSource[])
   importPrefix?: string
@@ -18,3 +20,7 @@ export interface FilterMetadata {
   value: string
   attributes: Record<string, string>
 }
+
+export declare function importAssets(
+  options?: ImportAssetsOptions
+): PreprocessorGroup
