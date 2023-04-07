@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.0.0 - 2023-04-07
+
+- **BREAKING:** use named export instead of default export
+
+```js
+// Before
+import importAssets from 'svelte-preprocess-import-assets'
+
+// After
+import { importAssets } from 'svelte-preprocess-import-assets'
+```
+
+- Export ESM only
+- Fix incorrect filter metadata value (https://github.com/bluwy/svelte-preprocess-import-assets/issues/17)
+
 ## 0.2.6 - 2023-02-23
 
 - Handle actual attributes only. Ignore spread, actions, etc.
