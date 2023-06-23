@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1 - 2023-06-23
+
+- Support Svelte 4
+
 ## 1.0.0 - 2023-04-07
 
 - **BREAKING:** use named export instead of default export
