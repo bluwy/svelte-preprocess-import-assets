@@ -47,7 +47,7 @@
 		"svelte-parse-markup": "^0.1.1"
 	},
 	"peerDependencies": {
-		"svelte": "^3.37.0"
+		"svelte": "^3.37.0 || ^4.0.0"
 	},
 	"devDependencies": {
 		"prettier": "^2.8.7",
