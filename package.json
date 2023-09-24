@@ -44,17 +44,18 @@
 	"packageManager": "pnpm@8.6.3",
 	"dependencies": {
 		"magic-string": "^0.30.0",
-		"svelte-parse-markup": "^0.1.1"
+		"svelte-parse-markup": "^0.1.2"
 	},
 	"peerDependencies": {
 		"svelte": "^3.37.0 || ^4.0.0"
 	},
 	"devDependencies": {
 		"prettier": "^2.8.7",
-		"prettier-plugin-svelte": "^2.10.0",
+		"prettier-plugin-svelte": "^2.10.1",
 		"sass": "^1.61.0",
-		"svelte": "^4.0.0",
-		"svelte-preprocess": "^5.0.3",
+		"svelte": "^4.2.1",
+		"svelte-preprocess": "^5.0.4",
+		"typescript": "^5.2.2",
 		"uvu": "^0.5.6"
 	}
 }

@@ -16,10 +16,15 @@ export function importAssets(options = {}) {
     urlFilter,
   } = options
 
+  /** @type {import('.').AssetSource[]} */
+  let resolvedSources
+
   let hasCustomSources = false
   if (typeof sources === 'function') {
     hasCustomSources = true
-    sources = sources(DEFAULT_SOURCES)
+    resolvedSources = sources(DEFAULT_SOURCES)
+  } else {
+    resolvedSources = sources
   }
 
   return {
@@ -45,11 +50,9 @@ export function importAssets(options = {}) {
 
         if (urlFilter && !urlFilter(url)) return
 
-        let importName = ''
+        let importName = imports.get(url)
 
-        if (imports.has(url)) {
-          importName = imports.get(url)
-        } else {
+        if (!importName) {
           importName = importPrefix + imports.size
           imports.set(url, importName)
         }
@@ -60,9 +63,10 @@ export function importAssets(options = {}) {
 
       let ignoreNextElement = false
 
+      // @ts-ignore
       walk(ast.html, {
         /**
-         * @param {any} node
+         * @param {import('svelte/types/compiler/interfaces').TemplateNode} node
          */
         enter(node) {
           if (node.type === 'Comment') {
@@ -80,26 +84,32 @@ export function importAssets(options = {}) {
               return
             }
 
-            /** @type {Record<string, string> | undefined} */
+            /** @type {Record<string, string>} */
             let lazyAttributes
 
             function getAttributes() {
               if (!lazyAttributes) {
                 lazyAttributes = {}
-                node.attributes.forEach((attr) => {
-                  if (attr.type !== 'Attribute') return
-                  // Ensure text only, since text only attribute values will only have one element
-                  if (attr.value.length > 1 && attr.value[0].type !== 'Text')
-                    return
-                  lazyAttributes[attr.name] = attr.value[0].raw
-                })
+                node.attributes.forEach(
+                  /** @param {any} attr */ (attr) => {
+                    if (attr.type !== 'Attribute') return
+                    // Ensure text only, since text only attribute values will only have one element
+                    if (
+                      attr.value.length > 1 &&
+                      attr.value[0].type !== 'Text'
+                    ) {
+                      return
+                    }
+                    lazyAttributes[attr.name] = attr.value[0].raw
+                  }
+                )
               }
               return lazyAttributes
             }
 
-            for (let i = 0; i < sources.length; i++) {
+            for (let i = 0; i < resolvedSources.length; i++) {
               /** @type {import('.').AssetSource} */
-              const source = sources[i]
+              const source = resolvedSources[i]
 
               // Compare node tag match
               if (source.tag === node.name) {
@@ -108,7 +118,8 @@ export function importAssets(options = {}) {
                  */
                 function getAttrValue(attr) {
                   const attribute = node.attributes.find(
-                    (v) => v.type === 'Attribute' && v.name === attr
+                    /** @param {any} v */ (v) =>
+                      v.type === 'Attribute' && v.name === attr
                   )
                   if (!attribute) return
 
@@ -167,8 +178,10 @@ export function importAssets(options = {}) {
           importText += `import ${importName} from "${path}";`
         }
         if (ast.module) {
+          // @ts-ignore
           s.appendLeft(ast.module.content.start, importText)
         } else if (ast.instance) {
+          // @ts-ignore
           s.appendLeft(ast.instance.content.start, importText)
         } else {
           s.append(`<script>${importText}</script>`)
