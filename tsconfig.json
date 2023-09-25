@@ -9,5 +9,5 @@
     "strict": true,
     "target": "ES2016"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "tests/**/*"]
 }

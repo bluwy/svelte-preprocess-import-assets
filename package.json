@@ -38,8 +38,8 @@
 	"scripts": {
 		"lint": "prettier \"**/*.{js,ts,css,md,svelte}\" --check --cache",
 		"format": "prettier \"**/*.{js,ts,css,md,svelte}\" --write --cache",
-		"test": "node tests/index.js",
-		"test-update": "node tests/index.js"
+		"test": "vitest",
+		"test-update": "vitest -u"
 	},
 	"packageManager": "pnpm@8.6.3",
 	"dependencies": {
@@ -56,6 +56,6 @@
 		"svelte": "^4.2.1",
 		"svelte-preprocess": "^5.0.4",
 		"typescript": "^5.2.2",
-		"uvu": "^0.5.6"
+		"vitest": "^0.34.5"
 	}
 }
