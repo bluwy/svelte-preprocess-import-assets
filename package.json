@@ -43,6 +43,7 @@
 	},
 	"packageManager": "pnpm@8.6.3",
 	"dependencies": {
+		"estree-walker": "^3.0.3",
 		"magic-string": "^0.30.0",
 		"svelte-parse-markup": "^0.1.2"
 	},

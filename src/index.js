@@ -1,6 +1,6 @@
 import MagicString from 'magic-string'
+import { walk } from 'estree-walker'
 import { parse } from 'svelte-parse-markup'
-import { walk } from 'svelte/compiler'
 import {
   DEFAULT_SOURCES,
   DEFAULT_ASSET_PREFIX,
