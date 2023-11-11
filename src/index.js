@@ -101,7 +101,7 @@ export function importAssets(options = {}) {
                       return
                     }
                     lazyAttributes[attr.name] = attr.value[0].raw
-                  }
+                  },
                 )
               }
               return lazyAttributes
@@ -119,7 +119,7 @@ export function importAssets(options = {}) {
                 function getAttrValue(attr) {
                   const attribute = node.attributes.find(
                     /** @param {any} v */ (v) =>
-                      v.type === 'Attribute' && v.name === attr
+                      v.type === 'Attribute' && v.name === attr,
                   )
                   if (!attribute) return
 

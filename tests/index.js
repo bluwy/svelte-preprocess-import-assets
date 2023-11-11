@@ -36,7 +36,7 @@ test('Snapshot test', async () => {
         },
       }),
     ],
-    { filename: 'Input.svelte' }
+    { filename: 'Input.svelte' },
   )
 
   // Make imports readable
@@ -51,7 +51,7 @@ test('Snapshot test', async () => {
     assert.fixture(
       outputCode,
       output,
-      '`Output.svelte` does not match, is it updated with `pnpm test:update`?'
+      '`Output.svelte` does not match, is it updated with `pnpm test:update`?',
     )
   }
 })

@@ -22,5 +22,5 @@ export interface FilterMetadata {
 }
 
 export declare function importAssets(
-  options?: ImportAssetsOptions
+  options?: ImportAssetsOptions,
 ): PreprocessorGroup
