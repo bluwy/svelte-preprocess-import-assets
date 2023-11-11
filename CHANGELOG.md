@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.0 - 2023-11-11
+
+- Support Svelte 5
+- Add `estree-walker` as dependency to support Svelte 5
+
 ## 1.0.1 - 2023-06-23
 
 - Support Svelte 4

@@ -1,7 +1,7 @@
 {
 	"name": "svelte-preprocess-import-assets",
 	"description": "Import assets in markup",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"license": "MIT",
 	"author": "Bjorn Lu",
 	"type": "module",
@@ -41,14 +41,14 @@
 		"test": "node tests/index.js",
 		"test-update": "node tests/index.js"
 	},
-	"packageManager": "pnpm@8.6.3",
+	"packageManager": "pnpm@8.10.2",
 	"dependencies": {
 		"estree-walker": "^3.0.3",
 		"magic-string": "^0.30.5",
 		"svelte-parse-markup": "^0.1.2"
 	},
 	"peerDependencies": {
-		"svelte": "^3.37.0 || ^4.0.0"
+		"svelte": "^3.37.0 || ^4.0.0 || ^5.0.0-next.1"
 	},
 	"devDependencies": {
 		"prettier": "^3.0.3",

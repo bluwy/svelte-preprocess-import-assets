@@ -1,6 +1,8 @@
 # svelte-preprocess-import-assets
 
-Import assets directly in the markup.
+Import assets directly in the markup. Supports Svelte 3, 4, and 5.
+
+> NOTE: Svelte 5 support is experimental and may break between versions.
 
 **Convert this:**
 
