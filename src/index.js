@@ -7,7 +7,7 @@ import {
   IGNORE_FLAG,
 } from './constants.js'
 
-/** @type {import('.').importAssets} */
+/** @type {import('./index.d.ts').importAssets} */
 export function importAssets(options = {}) {
   let {
     sources = DEFAULT_SOURCES,
@@ -16,7 +16,7 @@ export function importAssets(options = {}) {
     urlFilter,
   } = options
 
-  /** @type {import('.').AssetSource[]} */
+  /** @type {import('./index.d.ts').AssetSource[]} */
   let resolvedSources
 
   let hasCustomSources = false
@@ -108,7 +108,7 @@ export function importAssets(options = {}) {
             }
 
             for (let i = 0; i < resolvedSources.length; i++) {
-              /** @type {import('.').AssetSource} */
+              /** @type {import('./index.d.ts').AssetSource} */
               const source = resolvedSources[i]
 
               // Compare node tag match

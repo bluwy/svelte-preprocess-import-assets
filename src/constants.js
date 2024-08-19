@@ -49,7 +49,7 @@ export const ALLOWED_META_PROPERTY = [
   'vk:image',
 ]
 
-/** @type {import('.').AssetSource[]} */
+/** @type {import('./index.d.ts').AssetSource[]} */
 export const DEFAULT_SOURCES = [
   {
     tag: 'audio',
