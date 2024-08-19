@@ -49,6 +49,7 @@ import-assets-ignore -->
 <img src="{___ASSET___2}" {...{foo}} />
 <Image src="{___ASSET___2}" />
 <Img src="./bar.png" />
+<media-player src="{___ASSET___4}" />
 
 <!-- https://github.com/bluwy/svelte-preprocess-
 import-assets/issues/4 -->

@@ -32,6 +32,10 @@ test('Snapshot test', async () => {
                 return false
               },
             },
+            {
+              tag: 'media-player',
+              srcAttributes: ['src'],
+            },
           ]
         },
       }),
