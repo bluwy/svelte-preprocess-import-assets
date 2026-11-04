@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1 - 2026-11-04
+
+- Remove quotes when transforming attribute string value to JS value to prevent Svelte 5's `attribute_quoted` warning
+
 ## 1.1.0 - 2023-11-11
 
 - Support Svelte 5
