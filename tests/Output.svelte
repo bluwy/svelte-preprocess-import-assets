@@ -14,42 +14,42 @@ import oh from './no.png'
 
 {foo}
 <img src={oh} />
-<audio src="{___ASSET___0}" />
-<embed src="{___ASSET___1}" />
-<img src="{___ASSET___2}" />
+<audio src={___ASSET___0} />
+<embed src={___ASSET___1} />
+<img src={___ASSET___2} />
 <img srcset="{___ASSET___2}" />
-<input src="{___ASSET___3}" />
-<object src="{___ASSET___1}" />
-<source src="{___ASSET___4}" />
+<input src={___ASSET___3} />
+<object src={___ASSET___1} />
+<source src={___ASSET___4} />
 <source srcset="{___ASSET___4} 500v ./bar.mp4 100v" />
 <source srcset="{___ASSET___4}, {___ASSET___5} 1v" />
-<track src="{___ASSET___0}" />
-<video poster="{___ASSET___4}" />
-<video src="{___ASSET___4}" />
-<image href="{___ASSET___4}" xlink:href="{___ASSET___4}" />
-<use href="{___ASSET___4}" xlink:href="{___ASSET___4}" />
+<track src={___ASSET___0} />
+<video poster={___ASSET___4} />
+<video src={___ASSET___4} />
+<image href={___ASSET___4} xlink:href={___ASSET___4} />
+<use href={___ASSET___4} xlink:href={___ASSET___4} />
 <!-- svelte-preprocess-
 import-assets-ignore -->
 <use href="./foo.mp4" xlink:href="./foo.mp4" />
-<use href="{___ASSET___4}" xlink:href="{___ASSET___4}" />
+<use href={___ASSET___4} xlink:href={___ASSET___4} />
 <img src="./foo.exe" />
 <link
   rel="stylesheet"
-  href="{___ASSET___6}"
+  href={___ASSET___6}
   imagesrcset="{___ASSET___6} 100v, {___ASSET___7} 200v"
 />
 <link imagesrcset="ignore" itemprop="image" />
 <link href="./foo.css" />
-<link itemprop="logo" href="{___ASSET___3}" />
+<link itemprop="logo" href={___ASSET___3} />
 <meta name="author" content="Bjorn Lu" />
-<meta name="twitter:image" content="{___ASSET___1}" />
-<meta property="og:image" content="{___ASSET___2}" />
-<meta itemprop="embedurl" content="{___ASSET___0}" />
+<meta name="twitter:image" content={___ASSET___1} />
+<meta property="og:image" content={___ASSET___2} />
+<meta itemprop="embedurl" content={___ASSET___0} />
 <img src="https://example.com/foo.png" />
-<img src="{___ASSET___2}" {...{foo}} />
-<Image src="{___ASSET___2}" />
+<img src={___ASSET___2} {...{foo}} />
+<Image src={___ASSET___2} />
 <Img src="./bar.png" />
-<media-player src="{___ASSET___4}" />
+<media-player src={___ASSET___4} />
 
 <!-- https://github.com/bluwy/svelte-preprocess-
 import-assets/issues/4 -->

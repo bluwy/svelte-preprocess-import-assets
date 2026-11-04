@@ -39,8 +39,9 @@ export function importAssets(options = {}) {
 
       /**
        * @param {{ raw: string, start: number, end: number }} attributeValue
+       * @param {boolean} [quoted] whether the value is the whole attribute value, wrapped in quotes
        */
-      function addImport(attributeValue) {
+      function addImport(attributeValue, quoted = false) {
         const url = attributeValue.raw.trim()
 
         // Skip if url points to id, e.g. sprite sheets
@@ -57,8 +58,14 @@ export function importAssets(options = {}) {
           imports.set(url, importName)
         }
 
-        // e.g. <img src="./foo.png" /> => <img src="{___ASSET___0}" />
-        s.update(attributeValue.start, attributeValue.end, `{${importName}}`)
+        // e.g. <img src="./foo.png" /> => <img src={___ASSET___0} />. The quotes are replaced too,
+        // as Svelte 5 warns that quoted attributes on components will be stringified
+        const offset = quoted ? 1 : 0
+        s.update(
+          attributeValue.start - offset,
+          attributeValue.end + offset,
+          `{${importName}}`,
+        )
       }
 
       let ignoreNextElement = false
@@ -142,19 +149,21 @@ export function importAssets(options = {}) {
                   )
                     return
 
-                  return attribute.value[0]
+                  return attribute
                 }
 
                 // Check src
                 source.srcAttributes?.forEach((attr) => {
-                  const value = getAttrValue(attr)
-                  if (!value) return
-                  addImport(value)
+                  const attribute = getAttrValue(attr)
+                  if (!attribute) return
+                  const value = attribute.value[0]
+                  // A quoted value ends before its attribute does
+                  addImport(value, value.end !== attribute.end)
                 })
 
                 // Check srcset
                 source.srcsetAttributes?.forEach((attr) => {
-                  const value = getAttrValue(attr)
+                  const value = getAttrValue(attr)?.value[0]
                   if (!value) return
                   const srcsetRegex = /\s*([^,\s]+).*?(?:,|$)\s*/gm
                   let match
